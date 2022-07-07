@@ -20,9 +20,14 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('compile') {
+        stage('sonarqube checks') {
             steps {
-                echo 'Compile my job'
+                script {
+                withSonarQubeEnv('sonarqube-1') {
+                 sh 'mvn sonar:sonar'
+                
+                    }
+                }
             }
         }
     }
