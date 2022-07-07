@@ -17,14 +17,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn compile'
             }
         }
         stage('sonarqube checks') {
             steps {
                 script {
                 withSonarQubeEnv(installationName: 'sonarqube-1', credentialsId: 'jenkins-sonar-token') {
-                 sh 'mvn sonar:sonar'
+                 sh 'mvn clean package sonar:sonar'
                 
                     }
                 }
