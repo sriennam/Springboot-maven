@@ -25,8 +25,12 @@ pipeline {
                 script {
                 withSonarQubeEnv(installationName: 'sonarqube-1', credentialsId: 'jenkins-sonar-token') {
                  sh 'mvn clean package sonar:sonar'
-                
-                    }
+                 }
+                    timeout(time:1, unit: 'HOURS') {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK'){
+                            error "pipeline abort due to quality gate failure: $(qg.status)"
+                        }
                 }
             }
         }
