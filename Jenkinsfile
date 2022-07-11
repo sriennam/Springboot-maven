@@ -3,6 +3,9 @@ pipeline {
     tools {
        maven 'maven 3.8.6'
     }
+    environment {
+         dockerimage = ''
+    }
     stages {
        stage ('checkout') {
            steps {
