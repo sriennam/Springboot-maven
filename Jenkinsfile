@@ -4,7 +4,8 @@ pipeline {
        maven 'maven 3.8.6'
     }
     environment {
-         dockerimage = ''
+        registry= '016003963452.dkr.ecr.us-east-1.amazonaws.com/mydatarepo' 
+        dockerimage = ''
     }
     stages {
        stage ('checkout') {
