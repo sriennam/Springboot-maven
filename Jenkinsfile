@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         registry= '016003963452.dkr.ecr.us-east-1.amazonaws.com/dockerdemopipeline' 
+        registryCredientials = 'jenkins-ecr-login-credentials'
         dockerimage = ''
     }
     stages {
@@ -25,5 +26,14 @@ pipeline {
         }
     }
     }
+        stage('Deploy the image to Amazon ECR') {
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredientials ){
+                    dockerImage.push()
+                    }
+                }      
+            }          
+        }                 
     }
 }
