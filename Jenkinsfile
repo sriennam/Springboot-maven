@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy the image to Amazon ECR') {
             steps {
                 script {
-                    docker.withRegistry( '', registryCredientials ){
+                    docker.withRegistry('http://' + registry, 'ecr:eu-east-1:' + registryCredientials ) {
                     dockerImage.push()
                     }
                 }      
