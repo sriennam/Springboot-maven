@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-       maven 'maven 3.8.6'
+       maven 'M2_HOME'
     }
     environment {
         registry= '016003963452.dkr.ecr.us-east-1.amazonaws.com/dockerdemopipeline' 
