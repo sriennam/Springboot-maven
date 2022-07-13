@@ -34,6 +34,14 @@ pipeline {
                     }
                 }      
             }          
-        }                 
+        }
+        post {
+            success {
+                  main bcc: '', body: 'pipeline build success', cc:'', from: 'cbabu85@gmail.com', replyTo: '', subject: 'The Pipeline is success', to: 'cbabu85@gmail.com'
+            }
+            failure {
+                  main bcc: '', body: 'pipeline build failed', cc:'', from: 'cbabu85@gmail.com', replyTo: '', subject: 'The Pipeline is failed, to: 'cbabu85@gmail.com'
+            }
     }
+}
 }
