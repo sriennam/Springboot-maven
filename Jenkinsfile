@@ -9,6 +9,11 @@ pipeline {
         dockerimage = ''
     }
     stages {
+         stage ('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sriennam/Springboot-maven.git']]])
+            }
+        }
         
        
         stage('Build') {
@@ -23,11 +28,7 @@ pipeline {
         }
     }
     }
-         stage ('checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sriennam/Springboot-maven.git']]])
-            }
-        }
+        
         stage('Deploy the image to Amazon ECR') {
             steps {
                 script {
