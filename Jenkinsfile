@@ -35,6 +35,7 @@ pipeline {
                 }      
             }          
         }
+    }
         post {
         success {
             mail bcc: '', body: 'Pipeline build successfully', cc: '', from: 'cbabu85@gmail.com', replyTo: '', subject: 'The Pipeline success', to: 'cbabu85@gmail.com'
@@ -43,5 +44,4 @@ pipeline {
             mail bcc: '', body: 'Pipeline build not success', cc: '', from: 'cbabu85@gmail.com', replyTo: '', subject: 'The Pipeline failed', to: 'cbabu85@gmail.com'
          } 
     }
-}
 }
