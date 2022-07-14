@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         registry= '053518678618.dkr.ecr.eu-central-1.amazonaws.com/dockerfirstpipeline' 
-        registryCredientials = 'ecruser'
+        registryCredientials = 'jenkins-ecr-user'
         dockerimage = ''
     }
     stages {
