@@ -36,6 +36,15 @@ pipeline {
                 }      
             }          
         }
+        post {
+        success {
+            mail bcc: '', body: 'Pipeline build successfully', cc: '', from: '', replyTo: '', subject: 'The Pipeline success', to: 'srideviennam@gmail.com'
+        }
+        failure {  
+            mail bcc: '', body: 'Pipeline build not success', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed', to: 'srideviennam@gmail.com'
+         } 
+    }
+        
 //         stage('sonarqube checks') {
 //             steps {
 //                 script {
