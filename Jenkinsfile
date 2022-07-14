@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
         stage('Building the Image') {
