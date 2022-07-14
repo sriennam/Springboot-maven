@@ -39,10 +39,10 @@ pipeline {
     }
         post {
         success {
-            mail bcc: '', body: 'Pipeline build successfully', cc: '', from: '', replyTo: '', subject: 'The Pipeline success', to: 'srideviennam@gmail.com'
+            mail bcc: '', body: 'Pipeline build successfully', cc: '', from: 'srideviennam@gmail.com', replyTo: '', subject: 'The Pipeline success', to: 'srideviennam@gmail.com'
         }
         failure {  
-            mail bcc: '', body: 'Pipeline build not success', cc: '', from: '', replyTo: '', subject: 'The Pipeline failed', to: 'srideviennam@gmail.com'
+            mail bcc: '', body: 'Pipeline build not success', cc: '', from: 'srideviennam@gmail.com', replyTo: '', subject: 'The Pipeline failed', to: 'srideviennam@gmail.com'
          } 
     }
         
