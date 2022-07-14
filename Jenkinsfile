@@ -36,6 +36,7 @@ pipeline {
                 }      
             }          
         }
+    }
         post {
         success {
             mail bcc: '', body: 'Pipeline build successfully', cc: '', from: '', replyTo: '', subject: 'The Pipeline success', to: 'srideviennam@gmail.com'
@@ -60,5 +61,5 @@ pipeline {
 //             }
 //         }
 //     }
-}
+//}
 }
